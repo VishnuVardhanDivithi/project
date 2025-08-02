@@ -60,9 +60,9 @@ export default function Home() {
   }, []);
 
   // Get unique values for filters
-  const cities = useMemo(() => [...new Set(doctors.map(doctor => doctor.city))], [doctors]);
-  const hospitals = useMemo(() => [...new Set(doctors.map(doctor => doctor.hospital))], [doctors]);
-  const specialties = useMemo(() => [...new Set(doctors.map(doctor => doctor.specialty))], [doctors]);
+  const cities = useMemo(() => Array.from(new Set(doctors.map(doctor => doctor.city))), [doctors]);
+  const hospitals = useMemo(() => Array.from(new Set(doctors.map(doctor => doctor.hospital))), [doctors]);
+  const specialties = useMemo(() => Array.from(new Set(doctors.map(doctor => doctor.specialty))), [doctors]);
 
   // Filter doctors based on search criteria
   const filteredDoctors = useMemo(() => {
